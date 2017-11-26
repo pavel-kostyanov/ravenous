@@ -18,7 +18,7 @@ const business = {
          return (
            <div className="Business">
       <div className="image-container">
-        <img {business.imageSrc} alt=''/>
+        <img src={business.imageSrc} alt=''/>
       </div>
       <h2>{business.name}</h2>
       <div className="Business-information">
