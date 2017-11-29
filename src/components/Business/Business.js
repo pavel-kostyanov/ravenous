@@ -1,7 +1,6 @@
 import React from 'react';
 import './Business.css';
 
-
 const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
   name: 'MarginOtto Pizzeria',
@@ -13,6 +12,7 @@ const business = {
   rating: 4.5,
   reviewCount: 90
 }
+
  class Business extends React.Component {
    render(){
          return (
