@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 
+
 const sortByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -37,16 +38,17 @@ class SearchBar extends React.Component{
 
 
 
-  handleSortByChange(sortByOption){
-    this.setState({sortBy: sortByOption});
-  }
+        handleSortByChange(sortByOption){
+          this.setState({sortBy: sortByOption});
+        }
 
-    handleTermChange(event){
-        this.setState({term: event.target.value});
-    }
-    handleLocationChange(event){
-        this.setState({location: event.target.value});
-    }
+        handleTermChange(event){
+            this.setState({term: event.target.value});
+        }
+        handleLocationChange(event){
+            this.setState({location: event.target.value});
+        }
+
     handleSearch(event){
       event.preventDefault()
       const trm = this.state.term;
