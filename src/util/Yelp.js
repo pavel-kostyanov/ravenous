@@ -1,11 +1,11 @@
-const APIKey = 'DAfptbCI5l8NgmI75oXkD8NabHV8sZ21FAAf2vsm8J6gDnY9jM6WDw_SMezBI8t2gA_r2R-fgB4i0g9VufZjKOfpZG6x6Qib0psIU6lF-E0sTNc4oYXlaYUFKYopWnYx';
+const APIKey = 'f-4dGvYKVJp2_ufqGPLIM34uyIHvFE5KtV1Rk6NrFWamhm26arqJI58tXymO6IEjHOzVWu438kijI8j-Sg0SsSM0zo1cCvIpjN827pX5pyS47RUXQmzG-xYN2jMyWnYx';
 
 const Yelp = {
 
   search(term, location, sortBy){
-    const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sortBy=best_match`;
-
-      fetch(url, {
+    const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`;
+console.log(url);
+    return fetch(url, {
         method: 'GET',
         headers: {'Authorization': 'Bearer '+APIKey}
       }).then(response=>{
@@ -14,7 +14,7 @@ const Yelp = {
            }
            throw new Error('Request failed!');
          }, networkError=>console.log(networkError.message)).then(jsonResponse => {
-                            var x = jsonResponse.businesses.map(item=>{
+                          return  jsonResponse.businesses.map(item=>{
                                              return {
                                                id: item.id,
                                                     imageSrc: item.image_url,
@@ -27,7 +27,7 @@ const Yelp = {
                                                     rating: item.rating,
                                                     reviewCount: item.review_count
                                              };
-                                  });console.log(x);
+                                  });
          });
 }
 }

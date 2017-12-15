@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import BusinessList from './components/BusinessList/BusinessList.js'
 import SearchBar from './components/SearchBar/SearchBar.js'
 import Yelp from './util/Yelp.js';
+import './App.css';
 
 
 
@@ -13,15 +14,15 @@ class App extends React.Component {
     this.state = {
       businesses: []
     };
-    this.searchYelp.bind(this);
+    this.searchYelp = this.searchYelp.bind(this);
   }
+
   searchYelp(term, location, sortBy){
-
-  //console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`)
-Yelp.search(term, location, sortBy).then(businesses=>{this.setState({businesses: businesses})});
-
+Yelp.search(term, location, sortBy).then(value => {
+  console.log(value);
+  this.setState({businesses: value}
+  )});
   }
-
 
   render() {
     return (
